@@ -18,7 +18,7 @@ protocol DetailViewModelProtocol {
 }
 
 // DetailViewModel class implementing the DetailViewModelProtocol
-class DetailViewModel: ObservableObject, DetailViewModelProtocol {
+final class DetailViewModel: ObservableObject, DetailViewModelProtocol {
     // Published property to observe changes in the photo
     @Published var photo: Photo
 

@@ -8,7 +8,7 @@
 @testable import SimilarWeb_Assignment
 import XCTest
 
-class NetworkManagerTests: XCTestCase {
+final class NetworkManagerTests: XCTestCase {
 
     // Mock session and manager to use in tests
     var sut: NetworkManager!

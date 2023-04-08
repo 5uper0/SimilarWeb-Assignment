@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockURLSession: URLSessionProtocol {
+final class MockURLSession: URLSessionProtocol {
     var data: Data?
     var response: URLResponse?
     var error: Error?

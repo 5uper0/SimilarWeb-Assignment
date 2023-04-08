@@ -7,7 +7,7 @@ protocol MainViewModelProtocol {
 }
 
 // Main view model class
-class MainViewModel: ObservableObject {
+final class MainViewModel: ObservableObject {
     // Published properties
     @Published var photos: [Photo] = []
     @Published var searchText: String = ""

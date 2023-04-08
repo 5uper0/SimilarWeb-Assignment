@@ -20,7 +20,7 @@ protocol NetworkProtocol {
 }
 
 // The NetworkManager class handles making API requests, and conforms to the NetworkProtocol protocol.
-class NetworkManager {
+final class NetworkManager {
     private let clientID = "c99a7e7599297260b46b7c9cf36727badeb1d37b1f24aa9ef5d844e3fbed76fe"
     private let endpoint = "https://api.unsplash.com/search/"
     private let session: URLSessionProtocol

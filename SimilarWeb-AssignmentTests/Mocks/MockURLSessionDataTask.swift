@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockURLSessionDataTask: URLSessionDataTaskProtocol {
+final class MockURLSessionDataTask: URLSessionDataTaskProtocol {
     private let closure: () -> Void
 
     init(closure: @escaping () -> Void) {

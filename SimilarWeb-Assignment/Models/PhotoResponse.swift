@@ -7,6 +7,3 @@
 
 import Foundation
 
-struct PhotoResponse: Codable {
-    let results: [Photo]
-}

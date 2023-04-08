@@ -7,14 +7,14 @@
 
 import Foundation
 
-class MockURLSessionDataTask: URLSessionDataTask {
+class MockURLSessionDataTask: URLSessionDataTaskProtocol {
     private let closure: () -> Void
 
     init(closure: @escaping () -> Void) {
         self.closure = closure
     }
 
-    override func resume() {
+    func resume() {
         closure()
     }
 }

@@ -7,15 +7,21 @@
 
 import Foundation
 
+// Represents a user object with relevant properties.
 struct User: Codable {
+    
+    // Represents a collection of user profile image URLs.
     struct ProfileImage: Codable {
         let small, medium, large: String
     }
 
-    let username, firstName, bio: String
+    let username: String
+    let firstName: String
     let lastName: String?
+    let bio: String?
     let profileImage: ProfileImage
 
+    // Coding keys for mapping JSON keys to property names.
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"

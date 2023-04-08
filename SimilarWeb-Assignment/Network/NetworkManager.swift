@@ -7,27 +7,34 @@
 
 import Foundation
 
+// The APIError enum represents the different types of errors that can occur while making network requests or decoding the response.
 enum APIError: Error {
     case invalidURL
     case requestFailed(Error)
     case decodingFailed(Error)
 }
 
+// The NetworkProtocol protocol defines the interface for making API requests.
 protocol NetworkProtocol {
     func searchPhotos(query: String, completion: @escaping (Result<[Photo], APIError>) -> Void)
 }
 
+// The NetworkManager class handles making API requests, and conforms to the NetworkProtocol protocol.
 class NetworkManager {
     private let clientID = "c99a7e7599297260b46b7c9cf36727badeb1d37b1f24aa9ef5d844e3fbed76fe"
     private let endpoint = "https://api.unsplash.com/search/"
     private let session: URLSessionProtocol
 
+    // The session property represents the URLSession used to make requests, and defaults to the shared URLSession.
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
 }
 
 extension NetworkManager: NetworkProtocol {
+
+    // The searchPhotos method uses the request method to make a GET request to the Unsplash API's search photos
+    // endpoint, and returns the search results as an array of Photo objects.
     func searchPhotos(query: String, completion: @escaping (Result<[Photo], APIError>) -> Void) {
         let endpoint = "https://api.unsplash.com/search/photos"
         let parameters = ["query": query, "page": "1"]

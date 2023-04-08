@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+// Protocol defining the requirements for a DetailViewModel instance
 protocol DetailViewModelProtocol {
     var photo: Photo { get }
     var username: String { get }
@@ -16,9 +17,12 @@ protocol DetailViewModelProtocol {
     var fullname: String { get }
 }
 
-class DetailViewModel: ObservableObject {
+// DetailViewModel class implementing the DetailViewModelProtocol
+class DetailViewModel: ObservableObject, DetailViewModelProtocol {
+    // Published property to observe changes in the photo
     @Published var photo: Photo
 
+    // Initializing the DetailViewModel with a photo
     init(photo: Photo) {
         self.photo = photo
     }
@@ -35,6 +39,7 @@ class DetailViewModel: ObservableObject {
         photo.user.bio
     }
 
+    // Computed property to get the full name of the user from the user object inside the photo object
     var fullname: String {
         [photo.user.firstName, photo.user.lastName]
             .compactMap { $0 }

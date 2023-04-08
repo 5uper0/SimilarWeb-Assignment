@@ -7,12 +7,6 @@
 
 import Foundation
 
-/*
- This is Networking layer. I've provided it with a protocol for make it available for testing.
-
-*/
-
-
 enum APIError: Error {
     case invalidURL
     case requestFailed(Error)
@@ -23,7 +17,7 @@ protocol NetworkProtocol {
     func searchPhotos(query: String, completion: @escaping (Result<[Photo], APIError>) -> Void)
 }
 
-class NetworkManager: NetworkProtocol {
+class NetworkManager {
     private let clientID = "c99a7e7599297260b46b7c9cf36727badeb1d37b1f24aa9ef5d844e3fbed76fe"
     private let endpoint = "https://api.unsplash.com/search/"
     private let session: URLSessionProtocol
@@ -31,7 +25,9 @@ class NetworkManager: NetworkProtocol {
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
+}
 
+extension NetworkManager: NetworkProtocol {
     func searchPhotos(query: String, completion: @escaping (Result<[Photo], APIError>) -> Void) {
         let endpoint = "https://api.unsplash.com/search/photos"
         let parameters = ["query": query, "page": "1"]
@@ -48,7 +44,6 @@ class NetworkManager: NetworkProtocol {
 }
 
 private extension NetworkManager {
-
     func request<T: Decodable>(endpoint: String, parameters: [String: String] = [:], completion: @escaping (Result<T, APIError>) -> Void) {
         var components = URLComponents(string: endpoint)
         var queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }

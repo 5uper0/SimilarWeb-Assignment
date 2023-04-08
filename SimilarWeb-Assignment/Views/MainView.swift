@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
-    private let imageSize: CGFloat = 50
 
     var body: some View {
         NavigationView {
@@ -21,32 +20,46 @@ struct MainView: View {
                     resultsList
                 }
             }
-            .navigationTitle("Home Assignment")
+            .navigationTitle(Texts.title)
         }
         .searchable(
             text: $viewModel.searchText,
             placement: .navigationBarDrawer(displayMode: .always),
-            prompt: "Search for images")
+            prompt: Texts.prompt)
         .onSubmit(of: .search, viewModel.search)
     }
 }
 
 private extension MainView {
+    struct Texts {
+        static let title = "Home Assignment"
+        static let prompt = "Search for images"
+        static let noDescription = "No description"
+    }
+
+    struct Sizes {
+        static let imageSize: CGFloat = 50
+    }
 
     var resultsList: some View {
         List(viewModel.photos) { photo in
-            NavigationLink(destination: Text("Detail View")) {
+            NavigationLink(
+                destination: destination(for: photo)) {
                 HStack {
-                    AsyncImage(url: photo.smallPhotoURL)
+                    AsyncImage(url: photo.imageURL)
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: imageSize, height: imageSize)
+                        .frame(width: Sizes.imageSize, height: Sizes.imageSize)
                         .clipShape(Circle())
-                    Text(photo.description ?? "No description")
+                    Text(photo.description ?? Texts.noDescription)
+                        .lineLimit(1)
                 }
             }
         }
     }
 
+    func destination(for photo: Photo) -> some View {
+        DetailView(viewModel: DetailViewModel(photo: photo))
+    }
 }
 
 struct MainView_Previews: PreviewProvider {

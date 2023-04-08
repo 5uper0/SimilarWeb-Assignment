@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct SimilarWeb_AssignmentApp: App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

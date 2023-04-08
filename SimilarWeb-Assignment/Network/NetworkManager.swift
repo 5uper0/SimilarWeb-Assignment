@@ -19,12 +19,6 @@ enum APIError: Error {
     case decodingFailed(Error)
 }
 
-protocol URLSessionProtocol {
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-}
-
-extension URLSession: URLSessionProtocol {}
-
 protocol NetworkProtocol {
     func searchPhotos(query: String, completion: @escaping (Result<[Photo], APIError>) -> Void)
 }

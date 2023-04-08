@@ -7,8 +7,3 @@
 
 import Foundation
 
-struct Photo: Codable {
-    let id: String
-    let description: String?
-    let urls: [String: String]
-}

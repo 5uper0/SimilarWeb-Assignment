@@ -15,8 +15,6 @@
 		5FB55F5529E173E500382129 /* SimilarWeb_AssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F5429E173E500382129 /* SimilarWeb_AssignmentUITestsLaunchTests.swift */; };
 		5FB55F6329E174AE00382129 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F6229E174AE00382129 /* User.swift */; };
 		5FB55F6829E174D000382129 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F6729E174D000382129 /* NetworkManager.swift */; };
-		5FB55F6B29E1750500382129 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F6A29E1750500382129 /* SearchBarView.swift */; };
-		5FB55F6D29E1751000382129 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F6C29E1751000382129 /* ListItemView.swift */; };
 		5FB55F6F29E1752100382129 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F6E29E1752100382129 /* MainView.swift */; };
 		5FB55F7229E1753E00382129 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F7129E1753E00382129 /* DetailView.swift */; };
 		5FB55F7629E1757A00382129 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F7529E1757A00382129 /* MainViewModel.swift */; };
@@ -27,6 +25,7 @@
 		5FB55F8029E1809700382129 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F7F29E1809700382129 /* NetworkManagerTests.swift */; };
 		5FB55F8B29E1843400382129 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F8729E1839E00382129 /* MockURLSession.swift */; };
 		5FB55F8C29E1843E00382129 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F8929E183B400382129 /* MockURLSessionDataTask.swift */; };
+		5FB55F9029E1863400382129 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB55F8D29E1861000382129 /* URLSessionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +57,6 @@
 		5FB55F5429E173E500382129 /* SimilarWeb_AssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarWeb_AssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5FB55F6229E174AE00382129 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5FB55F6729E174D000382129 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		5FB55F6A29E1750500382129 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		5FB55F6C29E1751000382129 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		5FB55F6E29E1752100382129 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5FB55F7129E1753E00382129 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		5FB55F7529E1757A00382129 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -70,6 +67,7 @@
 		5FB55F7F29E1809700382129 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		5FB55F8729E1839E00382129 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		5FB55F8929E183B400382129 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		5FB55F8D29E1861000382129 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				5FB55F6929E174EF00382129 /* Scenes */,
-				5FB55F6629E174C400382129 /* Managers */,
+				5FB55F6629E174C400382129 /* Network */,
 				5FB55F6129E1749A00382129 /* Models */,
 				5FB55F3729E173E300382129 /* SimilarWeb_AssignmentApp.swift */,
 				5FB55F3B29E173E400382129 /* Assets.xcassets */,
@@ -141,6 +139,7 @@
 		5FB55F4729E173E500382129 /* SimilarWeb-AssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				5FB55F8629E1838300382129 /* Mocks */,
 				5FB55F4829E173E500382129 /* SimilarWeb_AssignmentTests.swift */,
 				5FB55F7F29E1809700382129 /* NetworkManagerTests.swift */,
 			);
@@ -166,13 +165,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		5FB55F6629E174C400382129 /* Managers */ = {
+		5FB55F6629E174C400382129 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				5FB55F6729E174D000382129 /* NetworkManager.swift */,
-				5FB55F8629E1838300382129 /* Mocks */,
+				5FB55F8D29E1861000382129 /* URLSessionProtocol.swift */,
 			);
-			path = Managers;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		5FB55F6929E174EF00382129 /* Scenes */ = {
@@ -187,8 +186,6 @@
 		5FB55F7329E1755A00382129 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5FB55F6A29E1750500382129 /* SearchBarView.swift */,
-				5FB55F6C29E1751000382129 /* ListItemView.swift */,
 				5FB55F6E29E1752100382129 /* MainView.swift */,
 				5FB55F7529E1757A00382129 /* MainViewModel.swift */,
 				5FB55F7929E178E800382129 /* MainModel.swift */,
@@ -344,16 +341,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FB55F9029E1863400382129 /* URLSessionProtocol.swift in Sources */,
 				5FB55F7229E1753E00382129 /* DetailView.swift in Sources */,
 				5FB55F6F29E1752100382129 /* MainView.swift in Sources */,
-				5FB55F6D29E1751000382129 /* ListItemView.swift in Sources */,
 				5FB55F7E29E17C9500382129 /* PhotoResponse.swift in Sources */,
 				5FB55F7629E1757A00382129 /* MainViewModel.swift in Sources */,
 				5FB55F6829E174D000382129 /* NetworkManager.swift in Sources */,
 				5FB55F3829E173E300382129 /* SimilarWeb_AssignmentApp.swift in Sources */,
 				5FB55F7A29E178E800382129 /* MainModel.swift in Sources */,
 				5FB55F7C29E17C8100382129 /* Photo.swift in Sources */,
-				5FB55F6B29E1750500382129 /* SearchBarView.swift in Sources */,
 				5FB55F7829E1758300382129 /* DetailViewModel.swift in Sources */,
 				5FB55F6329E174AE00382129 /* User.swift in Sources */,
 				5FB55F8B29E1843400382129 /* MockURLSession.swift in Sources */,

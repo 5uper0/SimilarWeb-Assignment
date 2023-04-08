@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct SimilarWeb_AssignmentApp: App {
+    let networkManager = NetworkManager()
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(viewModel: MainViewModel(networkManager: networkManager))
         }
     }
 }
